@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>CERTIFICATO</title>
+    <style>:root {
+  --font-main: 'Sorts Mill Goudy', serif;
+  --color-bg: #f6f7f9;
+  --color-text: #111;
+  --color-border: #999;
+  --color-primary: #000;
+  --color-secondary: #fff;
+}
+
+body {
+  margin: 0;
+  padding: 12px;
+  font-family: var(--font-main);
+  font-style: italic;
+  background: var(--color-bg);
+  font-size: 17px;
+  color: var(--color-text);
+}
+
+.app { width: 100%; max-width: 100%; }
+.group { margin-bottom: 12px; }
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 17px;
+}
+
+.inline { display: flex; gap: 8px; flex-direction: column; }
+@media (min-width: 600px) {
+  .inline { flex-direction: row; }
+}
+
+.preview {
+  border: 2px dashed var(--color-border);
+  width: 100%; height: 220px;
+  display: flex; align-items: center; justify-content: center;
+}
+.preview img { display: none; object-fit: contain; max-width: 100%; max-height: 100%; }
+.preview img.visible { display: block; }
+
+.actions { margin-top: 20px; }
+.btn { padding: 8px 14px; border: none; border-radius: 4px; cursor: pointer; font-size: 17px; }
+.btn.primary { background: var(--color-primary); color: var(--color-secondary); }
+.btn-block { width: 100%; }
+
+.brandline { width: 200px; margin: 0 auto; text-align: center; }
+.brandline img { max-width: 100%; height: auto; display: block; }
+
+.price-wrapper {
+  display: flex;
+  align-items: center;
+}
+.price-wrapper .currency {
+  padding: 8px;
+  background: #eee;
+  border: 1px solid var(--color-border);
+  border-radius: 4px 0 0 4px;
+  font-size: 17px;
+}
+.price-wrapper .price-input {
+  flex: 1;
+  border: 1px solid var(--color-border);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  padding: 8px;
+  text-align: left;
+  font-size: 17px;
+}
+
+.a4-page {
+  width: 794px;
+  height: 1123px;
+  background: #fff url("https://raw.githubusercontent.com/jingleglejin-jpg/i_m_a_g_e_s_/ee5adc59c0aa7b48b6e8910876413ab6466df5db/background.png") no-repeat center center;
+  background-size: 100% 100%;
+  color: var(--color-text);
+  padding: 80px;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+  font-style: italic;
+  font-size: 17px;
+  position: relative;
+}
+
+.a4-header { text-align: center; margin-bottom: 20px; }
+
+.a4-row {
+  display: flex;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+.a4-label {
+  font-weight: bold;
+  font-size: 17px;
+  min-width: 140px;
+}
+.a4-value {
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.a4-article-label {
+  font-weight: bold;
+  margin: 10px 0 6px 20px;
+  font-size: 17px;
+}
+
+.a4-image-full {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.a4-image-full img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.a4-divider {
+  height: 2px;
+  background: #ddd;
+  margin: 15px 0;
+}
+
+.a4-contacts {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 17px;
+  margin-left: 20px;
+}
+.a4-contacts td {
+  text-align: left;
+  padding: 4px 0;
+  font-size: 17px;
+}
+.a4-contacts td strong { font-weight: bold; }
+
+@media print {
+  body { background: #fff; }
+  .app { display: none; }
+  .a4-page { box-shadow: none; }
+}</style>
+
+  </head>
+    
+  <body>
+  <html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Certificato Garanzia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brandline">
+        <img src="https://raw.githubusercontent.com/jingleglejin-jpg/i_m_a_g_e_s_/ee5adc59c0aa7b48b6e8910876413ab6466df5db/l_o_g_o_.png" alt="Logo aziendale"/>
+      </div>
+    </header>
+
+    <form id="form" class="form">
+      <div class="group">
+        <label for="datetime"><strong>Data:</strong></label>
+        <div class="inline">
+          <input id="datetime" type="datetime-local" class="form-control" />
+          <button type="button" id="btnNow" class="btn btn-block small">Aggiorna ora</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <label for="fullname"><strong>Spett.:</strong></label>
+        <input id="fullname" type="text" class="form-control" required />
+      </div>
+
+      <div class="group">
+        <label for="category"><strong>Categoria:</strong></label>
+        <select id="category" class="form-control">
+          <option value="Orologio">Orologio</option>
+          <option value="Gioiello">Gioiello</option>
+        </select>
+      </div>
+
+      <div class="group">
+        <label id="brandLabel" for="brand"><strong>Marca:</strong></label>
+        <select id="brand" class="form-control"></select>
+      </div>
+
+      <div class="group">
+        <label for="description"><strong>Descrizione:</strong></label>
+        <textarea id="description" rows="4" class="form-control" required></textarea>
+      </div>
+
+      <div class="group">
+        <label for="price"><strong>Prezzo:</strong></label>
+        <div class="price-wrapper">
+          <span class="currency">€</span>
+          <input id="price" type="text" class="form-control price-input" required />
+        </div>
+      </div>
+
+      <div class="group">
+        <label for="warranty"><strong>Garanzia nº:</strong></label>
+        <input id="warranty" type="text" class="form-control" required />
+      </div>
+
+      <div class="group">
+        <label><strong>Articolo:</strong></label>
+        <input id="imageInput" type="file" accept="image/*" class="form-control" />
+        <div class="preview">
+          <span class="preview-hint">Anteprima articolo</span>
+          <img id="previewImg" alt="Anteprima articolo selezionato" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="btnExport" class="btn btn-block primary">
+          Esporta documento per la stampa
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div id="print-root" style="position:absolute; left:-9999px; top:0;"></div>
+</body>
+</html>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'></script> 
+<script> // Impostazioni richieste su CodePen (Settings → JS External):
+// 1) https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js
+// 2) https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ---------- Config ----------
+  const LOGO_URL = 'https://raw.githubusercontent.com/jingleglejin-jpg/i_m_a_g_e_s_/ee5adc59c0aa7b48b6e8910876413ab6466df5db/l_o_g_o_.png';
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbye5N8Xw1bKouhcIpxrhkZrKkIosJYtQohU_WdD-OcsS2y8shY4Pwdh_yAfuS9u96jG/exec';
+
+  // ---------- Utilities ----------
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function nowLocalString() {
+    const d = new Date();
+    return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  }
+
+  function escapeHtml(str) {
+    if (!str && str !== 0) return '';
+    return String(str)
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;');
+  }
+
+  function fitImageToBox(imgEl, boxEl) {
+    if (!imgEl || !boxEl) return;
+    const nw = imgEl.naturalWidth, nh = imgEl.naturalHeight;
+    if (!nw || !nh) return;
+    const bw = boxEl.clientWidth, bh = boxEl.clientHeight;
+    const scale = Math.min(bw / nw, bh / nh);
+    imgEl.style.width = `${nw * scale}px`;
+    imgEl.style.height = `${nh * scale}px`;
+    imgEl.style.objectFit = 'contain';
+    imgEl.style.maxWidth = 'none';
+    imgEl.style.maxHeight = 'none';
+  }
+
+  // ---------- Liste dinamiche ----------
+  const watchBrands = [
+    "Baume Mercier","Breitling","Breguet","Bvlgari","Cartier","Corum","Ebel","Eberhard",
+    "Frank Muller","IWC","Jaeger le Coultre","Longines","Movado","Omega","Panerai",
+    "Patek Philippe","Roger Dubuis","Rolex","Ulysse Nardin","Universal Geneve",
+    "Vacheron Constantin","Zenith"
+  ];
+  const jewelGenres = ["Anelli","Bracciali","Collier","Pendenti","Orecchini"];
+
+  function populateOptions(list) {
+    const selectEl = document.getElementById('brand');
+    if (!selectEl) return;
+    selectEl.innerHTML = '';
+    list.slice().sort().forEach(item => {
+      const opt = document.createElement('option');
+      opt.value = item;
+      opt.textContent = item;
+      selectEl.appendChild(opt);
+    });
+  }
+
+  function updateLabelAndOptions(categoryVal) {
+    const labelEl = document.getElementById('brandLabel');
+    if (!labelEl) return;
+    if (categoryVal === 'Gioiello') {
+      labelEl.innerHTML = '<strong>Genere:</strong>';
+      populateOptions(jewelGenres);
+    } else {
+      labelEl.innerHTML = '<strong>Marca:</strong>';
+      populateOptions(watchBrands);
+    }
+  }
+
+  // ---------- DOM refs ----------
+  const datetimeEl      = document.getElementById('datetime');
+  const btnNowEl        = document.getElementById('btnNow');
+  const btnExportEl     = document.getElementById('btnExport');
+
+  const fullnameEl      = document.getElementById('fullname');
+  const categoryEl      = document.getElementById('category');
+  const descriptionEl   = document.getElementById('description');
+  const warrantyEl      = document.getElementById('warranty');
+  const brandSelectEl   = document.getElementById('brand');
+  const priceEl         = document.getElementById('price');
+
+  const imageInputEl    = document.getElementById('imageInput');
+  const previewImgEl    = document.getElementById('previewImg');
+  const previewHintEl   = document.querySelector('.preview-hint');
+
+  const printRootEl     = document.getElementById('print-root');
+
+  // ---------- Formattazione prezzo ----------
+  function formatPriceInput(value) {
+    const clean = String(value).replace(/[^\d.,]/g, '').replace(/\./g, ',');
+    if (!clean) return '';
+    let num = parseFloat(clean.replace(',', '.'));
+    if (isNaN(num)) return '';
+    return num.toFixed(2).replace('.', ',');
+  }
+
+  if (priceEl) {
+    priceEl.addEventListener('blur', () => {
+      priceEl.value = formatPriceInput(priceEl.value);
+    });
+    priceEl.addEventListener('input', () => {
+      const caret = priceEl.selectionStart ?? priceEl.value.length;
+      const filtered = priceEl.value.replace(/[^\d,.\s]/g, '');
+      if (filtered !== priceEl.value) {
+        priceEl.value = filtered;
+        try { priceEl.setSelectionRange(caret, caret); } catch {}
+      }
+    });
+  }
+
+  // ---------- Helpers DOM ----------
+  function clearPrintRoot() {
+    if (printRootEl) printRootEl.innerHTML = '';
+  }
+
+  function collectValues() {
+    return {
+      datetime: datetimeEl ? datetimeEl.value.trim() : '',
+      fullname: fullnameEl ? fullnameEl.value.trim() : '',
+      category: categoryEl ? categoryEl.value : '',
+      brandOrGenre: brandSelectEl ? brandSelectEl.value : '',
+      description: descriptionEl ? descriptionEl.value.trim() : '',
+      warranty: warrantyEl ? warrantyEl.value.trim() : '',
+      price: priceEl ? formatPriceInput(priceEl.value.trim()) : '',
+      imageDataUrl: (previewImgEl && previewImgEl.src && previewImgEl.classList.contains('visible')) ? previewImgEl.src : null
+    };
+  }
+
+  function validateForm(values) {
+    const required = [
+      { key: 'fullname',    label: 'Spett.' },
+      { key: 'description', label: 'Descrizione' },
+      { key: 'price',       label: 'Prezzo' },
+      { key: 'warranty',    label: 'Garanzia nº' }
+    ];
+    for (const { key, label } of required) {
+      if (!values[key]) {
+        alert(`Il campo "${label}" è obbligatorio.`);
+        return false;
+      }
+    }
+    const priceNum = Number(values.price.replace(',', '.'));
+    if (isNaN(priceNum) || priceNum < 0) {
+      alert('Inserisci un prezzo valido (numero non negativo).');
+      return false;
+    }
+    return true;
+  }
+
+  // ---------- Builders A4 ----------
+  function contactsTableHtmlThreeCols() {
+    return `
+      <table class="a4-contacts">
+        <tbody>
+          <tr>
+            <td><strong>Modena</strong></td>
+            <td><strong>Pietrasanta</strong></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Via Luigi Carlo Farini, 51</td>
+            <td>Via Giuseppe Garibaldi, 9</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>41121 Modena (MO)</td>
+            <td>55045 Pietrasanta (LU)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Tel. +39 393 9256994</td>
+            <td>Tel. +39 393 925694</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+  }
+
+  function buildA4WithPrice(values) {
+    const { datetime, fullname, category, brandOrGenre, description, warranty, price, imageDataUrl } = values;
+    const labelText = category === 'Gioiello' ? 'Genere' : 'Marca';
+
+    const a4 = document.createElement('div');
+    a4.className = 'a4-page';
+    a4.innerHTML = `
+      <div class="a4-header">
+        <img class="logo-pdf"
+             src="${LOGO_URL}"
+             alt="Logo aziendale"
+             crossorigin="anonymous"
+             style="max-width:200px; height:auto; display:inline-block;"/>
+      </div>
+
+      <div class="a4-row"><div class="a4-label">Data:</div><div class="a4-value">${escapeHtml(datetime)}</div></div>
+      <div class="a4-row"><div class="a4-label">Spett.:</div><div class="a4-value">${escapeHtml(fullname)}</div></div>
+      <div class="a4-row"><div class="a4-label">Categoria:</div><div class="a4-value">${escapeHtml(category)}</div></div>
+      <div class="a4-row"><div class="a4-label">${labelText}:</div><div class="a4-value">${escapeHtml(brandOrGenre)}</div></div>
+      <div class="a4-row"><div class="a4-label">Descrizione:</div><div class="a4-value">${escapeHtml(description).replace(/\n/g, '<br>')}</div></div>
+      <div class="a4-row"><div class="a4-label">Prezzo:</div><div class="a4-value">€ ${escapeHtml(price)}</div></div>
+      <div class="a4-row"><div class="a4-label">Garanzia nº:</div><div class="a4-value">${escapeHtml(warranty)}</div></div>
+
+      <div class="a4-article-label">Articolo:</div>
+      <div class="a4-image-full">${imageDataUrl ? `<img src="${imageDataUrl}" alt="Articolo selezionato" />` : ''}</div>
+
+      <div class="a4-divider"></div>
+
+      ${contactsTableHtmlThreeCols()}
+    `;
+    return a4;
+  }
+
+  function buildA4WithoutPrice(values) {
+    const { datetime, fullname, category, brandOrGenre, description, warranty, imageDataUrl } = values;
+    const labelText = category === 'Gioiello' ? 'Genere' : 'Marca';
+
+    const a4 = document.createElement('div');
+    a4.className = 'a4-page';
+    a4.innerHTML = `
+      <div class="a4-header">
+        <img class="logo-pdf"
+             src="${LOGO_URL}"
+             alt="Logo aziendale"
+             crossorigin="anonymous"
+             style="max-width:200px; height:auto; display:inline-block;"/>
+      </div>
+
+      <div class="a4-row"><div class="a4-label">Data:</div><div class="a4-value">${escapeHtml(datetime)}</div></div>
+      <div class="a4-row"><div class="a4-label">Spett.:</div><div class="a4-value">${escapeHtml(fullname)}</div></div>
+      <div class="a4-row"><div class="a4-label">Categoria:</div><div class="a4-value">${escapeHtml(category)}</div></div>
+      <div class="a4-row"><div class="a4-label">${labelText}:</div><div class="a4-value">${escapeHtml(brandOrGenre)}</div></div>
+      <div class="a4-row"><div class="a4-label">Descrizione:</div><div class="a4-value">${escapeHtml(description).replace(/\n/g, '<br>')}</div></div>
+      <div class="a4-row"><div class="a4-label">Garanzia nº:</div><div class="a4-value">${escapeHtml(warranty)}</div></div>
+
+      <div class="a4-article-label">Articolo:</div>
+      <div class="a4-image-full">${imageDataUrl ? `<img src="${imageDataUrl}" alt="Articolo selezionato" />` : ''}</div>
+
+      <div class="a4-divider"></div>
+
+      ${contactsTableHtmlThreeCols()}
+    `;
+    return a4;
+  }
+
+  // ---------- Invio a Google Sheets ----------
+  async function sendToGoogleSheet(values) {
+    // Evita di inviare l'immagine base64 (pesante)
+    const payload = {
+      datetime: values.datetime,
+      fullname: values.fullname,
+      category: values.category,
+      brandOrGenre: values.brandOrGenre,
+      description: values.description,
+      price: values.price,
+      warranty: values.warranty
+    };
+
+    let resp;
+    try {
+      resp = await fetch(SHEET_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (networkErr) {
+      throw new Error(`Network error: ${networkErr && networkErr.message ? networkErr.message : networkErr}`);
+    }
+
+    const text = await resp.text().catch(() => '');
+    console.log('Risposta WebApp:', text);
+
+    if (!resp.ok) {
+      throw new Error(`Invio a Google Sheets fallito: ${resp.status} ${text}`);
+    }
+
+    return text || 'OK';
+  }
+
+  // ---------- Export PDF (doppio) ----------
+  async function exportPdf() {
+    if (typeof html2canvas !== 'function') {
+      alert('html2canvas non è caricato. Aggiungilo nelle impostazioni JS di CodePen.');
+      return;
+    }
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      alert('jsPDF non è caricato. Aggiungilo nelle impostazioni JS di CodePen.');
+      return;
+    }
+
+    const values = collectValues();
+    if (!validateForm(values)) return;
+
+    // 1) Invio a Google Sheets (prima del PDF)
+    try {
+      await sendToGoogleSheet(values);
+      console.log('Dati inviati a Google Sheets');
+    } catch (err) {
+      console.error('Errore invio dati a Google Sheets:', err);
+      alert('Non è stato possibile inviare i dati al foglio Google. Verifica la Web App e il nome del foglio.');
+      // Proseguiamo comunque con il PDF per non bloccare l’utente
+    }
+
+    // 2) Generazione PDF
+    clearPrintRoot();
+
+    async function waitImages(dom) {
+      const imgNodes = Array.from(dom.querySelectorAll('img'));
+      const promises = imgNodes.map(img => new Promise(resolve => {
+        if (img.complete) return resolve();
+        img.onload = resolve;
+        img.onerror = resolve;
+      }));
+      await Promise.all(promises);
+    }
+
+    async function generatePdf(dom, filename) {
+      printRootEl.innerHTML = '';
+      printRootEl.appendChild(dom);
+
+      await waitImages(dom);
+
+      const imgEl = dom.querySelector('.a4-image-full img');
+      if (imgEl) fitImageToBox(imgEl, imgEl.parentElement);
+
+      const canvas = await html2canvas(dom, {
+        scale: Math.min(window.devicePixelRatio || 1, 2.5),
+        backgroundColor: '#ffffff',
+        useCORS: true
+      });
+
+      const imgData = canvas.toDataURL('image/jpeg', 0.95);
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+
+      doc.addImage(imgData, 'JPEG', 0, 0, 210, 297);
+      doc.save(filename);
+    }
+
+    const fullnameSafe = (values.fullname || '').trim().replace(/\s+/g, '_');
+    const warrantySafe = (values.warranty || '').trim();
+    const base = (fullnameSafe || 'certificato') + (warrantySafe ? `-${warrantySafe}` : '');
+
+    try {
+      const domWithPrice = buildA4WithPrice(values);
+      const filenameWithPrice = `${base}-con-prezzo.pdf`;
+      await generatePdf(domWithPrice, filenameWithPrice);
+
+      const domWithoutPrice = buildA4WithoutPrice(values);
+      const filenameWithoutPrice = `${base}-senza-prezzo.pdf`;
+      await generatePdf(domWithoutPrice, filenameWithoutPrice);
+    } catch (err) {
+      console.error('Errore export PDF:', err);
+      alert('Si è verificato un errore durante l’esportazione. Controlla che le librerie siano incluse correttamente.');
+    } finally {
+      clearPrintRoot();
+    }
+  }
+
+  // ---------- Init ----------
+  if (datetimeEl) datetimeEl.value = nowLocalString();
+  updateLabelAndOptions(categoryEl ? categoryEl.value : 'Orologio');
+
+  if (btnNowEl) {
+    btnNowEl.addEventListener('click', () => {
+      if (datetimeEl) datetimeEl.value = nowLocalString();
+    });
+  }
+
+  if (categoryEl) {
+    categoryEl.addEventListener('change', (e) => {
+      updateLabelAndOptions(e.target.value);
+    });
+  }
+
+  // ---------- Anteprima immagine ----------
+  if (imageInputEl) {
+    imageInputEl.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (!previewImgEl) return;
+        previewImgEl.onload = () => {
+          previewImgEl.classList.add('visible');
+          if (previewHintEl) previewHintEl.style.display = 'none';
+          fitImageToBox(previewImgEl, previewImgEl.parentElement);
+        };
+        previewImgEl.src = reader.result;
+        previewImgEl.alt = `Articolo selezionato: ${file.name}`;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // ---------- Events ----------
+  if (btnExportEl) btnExportEl.addEventListener('click', exportPdf);
+});</script>
+
+  </body>
+  
+</html>
